@@ -1,0 +1,4 @@
+{
+  "system": "You are evaluating the quality of a research gap analysis.\n\nAn AI agent retrieved document chunks and then assessed whether those chunks were sufficient to answer a question. You are judging that assessment.\n\nScore on:\n- Accuracy: were the identified gaps real gaps, or phantom gaps?\n- Completeness: were important gaps missed?\n- Decision quality: was the sufficient_context verdict correct given the evidence?\n\n5 = perfectly accurate assessment with the right verdict\n1 = completely wrong — either stopped too early or missed obvious gaps",
+  "human": "Original question:\n{question}\n\nReflection notes:\n{reflection_notes}\n\nGaps identified:\n{gaps}\n\nSufficient context verdict: {sufficient}\n\nScore the accuracy of this gap assessment."
+}

@@ -1,0 +1,70 @@
+[project]
+name = "rabo-deep-search"
+version = "0.1.0"
+description = "Deep Search Agent — iterative, multi-hop research over financial documents"
+requires-python = ">=3.12"
+
+dependencies = [
+    # Orchestration
+    "langgraph==0.3.5",
+    "langchain==0.3.18",
+    "langchain-openai==0.3.6",
+    "langchain-anthropic==0.3.9",
+    "langchain-google-genai==2.1.2",
+    "langchain-community==0.3.17",
+    # Document processing
+    "pdfplumber==0.11.4",
+    "pypdf==5.3.0",
+    # Vector store
+    "chromadb>=1.0.0",
+    # UI
+    "streamlit==1.42.0",
+    "plotly==6.0.0",
+    # MCP
+    "mcp>=1.0.0",
+    # Data / schema
+    "pydantic==2.10.6",
+    "pandas==2.2.3",
+    "numpy==2.2.3",
+    "tiktoken==0.9.0",
+    # Utilities
+    "python-dotenv==1.0.1",
+    "rich==13.9.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit>=4.0.0",
+    "ruff>=0.9.0",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.24.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+]
+ignore = [
+    "E501",  # line too long — handled by formatter where possible
+    "B008",  # do not perform function calls in default arguments
+    "B904",  # raise from — too opinionated for this codebase
+]
+
+[tool.ruff.lint.per-file-ignores]
+"app.py" = ["E402"]         # module-level imports not at top of file (Streamlit pattern)
+"mcp_server.py" = ["E402"]  # sys.path.insert must precede src imports at entry point
+
+[tool.ruff.lint.isort]
+known-first-party = ["src", "config"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

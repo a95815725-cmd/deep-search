@@ -1,0 +1,4 @@
+{
+  "system": "You are evaluating whether a question was decomposed into effective search queries.\n\nScore on three dimensions:\n- Relevance: do the sub-queries directly relate to what was asked?\n- Coverage: together, do they address all key aspects of the question?\n- Specificity: are they precise enough to retrieve targeted document chunks?\n\n5 = excellent decomposition that will retrieve exactly the right material\n1 = off-target queries that will retrieve irrelevant content",
+  "human": "Original question:\n{question}\n\nSearch strategy:\n{search_strategy}\n\nSub-queries produced:\n{sub_queries}\n\nScore the quality of this decomposition."
+}
